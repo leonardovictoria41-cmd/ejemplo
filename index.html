@@ -3,259 +3,287 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Recursividad en Programación</title>
+  <title>Recursividad en Algoritmos</title>
   <style>
     body {
-      margin: 0;
-      font-family: "Segoe UI", Arial, sans-serif;
-      background: #f0f2f5;
-      color: #333;
-    }
-    header.hero {
-      background: url("https://images.unsplash.com/photo-1555949963-aa79dcee981c") no-repeat center center/cover;
-      height: 250px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-align: center;
-    }
-    header .overlay {
-      background: rgba(0,0,0,0.6);
-      padding: 20px;
-      border-radius: 10px;
-    }
-    nav {
-      background: #1e1e2f;
-      padding: 10px;
-    }
-    nav ul {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      list-style: none;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding: 0;
+      background: linear-gradient(to right, #f0f4ff, #dfe9f3);
+      color: #333;
+      line-height: 1.8;
     }
-    nav ul li a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s;
+    header {
+      background: linear-gradient(135deg, #005bea, #00c6fb);
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
     }
-    nav ul li a:hover {
-      color: #00c3ff;
+    header h1 {
+      font-size: 3em;
+      margin: 0;
     }
-    main {
-      max-width: 1000px;
-      margin: auto;
-      padding: 20px;
+    header p {
+      font-size: 1.2em;
+      margin-top: 10px;
     }
-    .card {
-      background: #fff;
-      border-radius: 12px;
-      padding: 20px;
-      margin: 20px 0;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-    }
-    h2 {
-      color: #004aad;
-    }
-    .img {
-      display: block;
-      max-width: 150px;
-      margin: 15px auto;
-    }
-    pre {
-      background: #222;
-      color: #0f0;
-      padding: 10px;
-      border-radius: 8px;
-      overflow-x: auto;
-    }
-    footer {
-      background: #1e1e2f;
-      color: #fff;
+    nav {
+      background: #003c8f;
       text-align: center;
       padding: 15px;
+    }
+    nav a {
+      color: white;
+      margin: 0 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    section {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 30px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    section h2 {
+      color: #005bea;
+      font-size: 2em;
+      margin-bottom: 15px;
+      border-bottom: 3px solid #00c6fb;
+      padding-bottom: 10px;
+    }
+    section img {
+      display: block;
+      margin: 20px auto;
+      max-width: 80%;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    footer {
+      background: #003c8f;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+    .example {
+      background: #f8faff;
+      border-left: 5px solid #00c6fb;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+      font-family: monospace;
+    }
+    .team {
+      text-align: center;
+      font-weight: bold;
+      margin-top: 10px;
     }
   </style>
 </head>
 <body>
-  <!-- Encabezado -->
-  <header class="hero">
-    <div class="overlay">
-      <h1>Recursividad en Programación</h1>
-      <p>Definición, características, ejemplos y aplicaciones</p>
-    </div>
+
+  <header>
+    <h1>Recursividad en Algoritmos</h1>
+    <p>Un análisis completo con ejemplos prácticos</p>
+    <div class="team">Trabajo en equipo: Integrante 1, Integrante 2, Integrante 3</div>
   </header>
 
-  <!-- Barra de navegación -->
   <nav>
-    <ul>
-      <li><a href="#definicion">Definición</a></li>
-      <li><a href="#procedimientos">Procedimientos</a></li>
-      <li><a href="#caracteristicas">Características</a></li>
-      <li><a href="#ejemplos">Ejemplos</a></li>
-      <li><a href="#fractal">Fractales</a></li>
-      <li><a href="#conclusion">Conclusión</a></li>
-      <li><a href="#referencias">Referencias</a></li>
-    </ul>
+    <a href="#definicion">Definición</a>
+    <a href="#procedimientos">Procedimientos</a>
+    <a href="#caracteristicas">Características</a>
+    <a href="#complejidad">Complejidad</a>
+    <a href="#ejemplos">Ejemplos</a>
+    <a href="#conclusion">Conclusión</a>
+    <a href="#referencias">Referencias</a>
   </nav>
 
-  <!-- Contenido principal -->
-  <main>
-    <!-- Definición -->
-    <section id="definicion" class="card">
-      <h2>Definición</h2>
-      <p>
-        La <b>recursividad</b> es una técnica de programación en la que una función se llama a sí misma 
-        directa o indirectamente para resolver un problema, descomponiéndolo en subproblemas más simples [1][2].
-      </p>
-      <img src="https://cdn-icons-png.flaticon.com/512/3209/3209265.png" alt="Definición recursividad" class="img">
-    </section>
+  <section id="definicion">
+    <h2>Definición de Recursividad</h2>
+    <p>
+      La recursividad es un concepto central en la programación y las matemáticas que consiste en que una función, algoritmo o procedimiento
+      se defina a sí mismo. En otras palabras, una función recursiva es aquella que se llama a sí misma con el objetivo de resolver un problema
+      dividiéndolo en subproblemas más pequeños y similares al original. Este mecanismo se convierte en una herramienta poderosa porque
+      permite expresar soluciones de manera clara, concisa y directa en comparación con enfoques iterativos que pueden resultar más extensos.
+      Para que la recursividad funcione correctamente, deben existir dos elementos: una condición base y un paso recursivo. La condición base
+      es el punto en el que el algoritmo deja de llamarse a sí mismo, asegurando que el proceso no se vuelva infinito. El paso recursivo,
+      en cambio, es la parte que reduce el problema original a una versión más pequeña del mismo problema, acercándose cada vez más a la base.
+      La recursividad es ampliamente utilizada en programación de algoritmos relacionados con estructuras jerárquicas como árboles y grafos,
+      en matemáticas para definir secuencias, y en situaciones prácticas como la búsqueda en datos, la ordenación y la exploración de caminos.
+      Este concepto, aunque simple en apariencia, requiere una comprensión profunda para evitar errores comunes como llamadas infinitas
+      o uso excesivo de memoria. Gracias a su versatilidad, la recursividad se ha consolidado como un pilar en el aprendizaje de la lógica
+      computacional. [1][2][3]
+    </p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Recursion_diagram.png" alt="Diagrama de recursividad">
+  </section>
 
-    <!-- Procedimientos -->
-    <section id="procedimientos" class="card">
-      <h2>Procedimientos y Aplicaciones</h2>
-      <p>
-        Se utiliza cuando la solución de un problema puede representarse en términos de una versión 
-        más pequeña del mismo problema. Ejemplos comunes incluyen el cálculo de factoriales, la sucesión 
-        de Fibonacci, algoritmos de búsqueda y ordenamiento como MergeSort y QuickSort, y estructuras 
-        como árboles binarios [3][4].
-      </p>
-      <img src="https://cdn-icons-png.flaticon.com/512/7150/7150859.png" alt="Algoritmos recursivos" class="img">
-    </section>
+  <section id="procedimientos">
+    <h2>Procedimientos Recursivos y sus Aplicaciones</h2>
+    <p>
+      Un procedimiento recursivo es aquel que dentro de su definición incluye una llamada a sí mismo para resolver el problema planteado.
+      Estos procedimientos se diferencian de los algoritmos iterativos porque no dependen de bucles tradicionales como “for” o “while”,
+      sino de la repetición natural que surge de la autosimilaridad del problema. La recursividad se aplica de manera muy efectiva en la
+      resolución de problemas que pueden descomponerse en subproblemas más pequeños de la misma naturaleza. Un ejemplo clásico está en el
+      recorrido de estructuras de datos jerárquicas como árboles o directorios de archivos en un sistema operativo. Cada nodo o carpeta se
+      procesa de la misma manera, y la recursividad permite recorrerlos de manera simple y elegante. Otra aplicación importante se encuentra
+      en el cálculo de valores matemáticos, como el máximo común divisor mediante el algoritmo de Euclides, o en problemas de combinatoria
+      como generar todas las permutaciones posibles de un conjunto. También es usada en backtracking, un método que prueba soluciones y
+      retrocede cuando una opción no conduce a una respuesta válida, como ocurre en el problema de las N-Reinas o la resolución de laberintos.
+      En inteligencia artificial, los procedimientos recursivos facilitan la búsqueda de caminos y estrategias en juegos. Aunque resultan
+      elegantes y claros, requieren una correcta gestión de la memoria, ya que cada llamada ocupa espacio en la pila. Por ello, cuando se
+      aplican a problemas grandes, es importante considerar optimizaciones como la recursividad de cola. [3][4]
+    </p>
+    <img src="https://miro.medium.com/v2/resize:fit:1200/format:webp/1*v37Y_JfJZWlQ6cTAH2IYGg.png" alt="Procedimientos recursivos">
+  </section>
 
-    <!-- Características -->
-    <section id="caracteristicas" class="card">
-      <h2>Características</h2>
-      <ul>
-        <li>Divide un problema complejo en subproblemas más simples [5].</li>
-        <li>Debe tener una condición de parada o caso base [1].</li>
-        <li>Facilita la comprensión y claridad de ciertos algoritmos [2].</li>
-        <li>Puede implicar mayor consumo de memoria debido a la pila de llamadas [6].</li>
-      </ul>
-    </section>
+  <section id="caracteristicas">
+    <h2>Características de la Recursividad</h2>
+    <p>
+      La recursividad presenta un conjunto de características que la hacen única frente a otros enfoques de programación. Una de las más
+      destacadas es su capacidad de simplificar problemas complejos al dividirlos en subproblemas más manejables. Este proceso de división
+      favorece la claridad en el diseño de algoritmos, pues refleja de manera natural la lógica de muchos problemas matemáticos y computacionales.
+      Otra característica importante es el uso de la pila de llamadas: cada vez que una función recursiva se ejecuta, el sistema crea un
+      nuevo contexto con variables y direcciones de retorno. Esto permite mantener estados separados para cada invocación, pero a la vez
+      incrementa el consumo de memoria. Por esta razón, los algoritmos recursivos deben diseñarse cuidadosamente para evitar desbordamientos
+      de pila en casos de gran profundidad. La recursividad también fomenta la elegancia y el pensamiento abstracto, ya que obliga al programador
+      a concebir los problemas desde un enfoque autosimilar. En programación funcional, es una técnica común que sustituye la iteración tradicional.
+      Sin embargo, no todo es positivo: algunos problemas se resuelven de manera más eficiente con algoritmos iterativos, especialmente cuando se
+      busca optimizar el uso de memoria. La recursividad, pese a estas limitaciones, sigue siendo un recurso didáctico invaluable que fortalece
+      la capacidad de pensar en términos de abstracción, inducción y descomposición. [2][5][6]
+    </p>
+    <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221121132716/TailRecursion.png" alt="Características de recursividad">
+  </section>
 
-    <!-- Ejemplos -->
-    <section id="ejemplos" class="card">
-      <h2>Ejemplos de Recursividad</h2>
-      
-      <article>
-        <h3>Factorial</h3>
-        <pre><code>
-function factorial(n) {
-  if (n === 0) return 1;
-  return n * factorial(n - 1);
-}
-        </code></pre>
-        <p>Ejemplo: factorial(5) = 120</p>
-      </article>
+  <section id="complejidad">
+    <h2>Complejidad Computacional en Algoritmos Recursivos</h2>
+    <p>
+      La complejidad computacional de un algoritmo recursivo se refiere a la cantidad de recursos en tiempo y memoria que consume durante
+      su ejecución. Analizar esta complejidad es crucial, pues aunque los algoritmos recursivos son elegantes, no siempre son los más
+      eficientes. Por ejemplo, el algoritmo recursivo básico para calcular la sucesión de Fibonacci tiene complejidad exponencial O(2^n),
+      debido a que recalcula una y otra vez los mismos valores. En contraste, el cálculo del factorial de un número tiene complejidad lineal O(n),
+      ya que realiza una llamada por cada número decreciente hasta llegar a la base. Para realizar estos análisis, se utilizan ecuaciones de
+      recurrencia que describen el tiempo en función del tamaño de entrada, y técnicas como el Teorema Maestro ayudan a resolverlas. Además
+      del tiempo, la memoria es un factor determinante: cada llamada recursiva utiliza un marco en la pila, lo que puede llevar a un desbordamiento
+      si el número de llamadas es muy grande. Por esta razón, existen optimizaciones como la recursividad de cola o el uso de memoización, que
+      almacenan resultados previos para evitar repeticiones. Comprender la complejidad de los algoritmos recursivos permite decidir cuándo
+      emplearlos y cuándo preferir soluciones iterativas o híbridas que equilibren claridad y eficiencia. [1][3][6]
+    </p>
+    <img src="https://static.javatpoint.com/ds/images/time-complexity-in-data-structure.png" alt="Complejidad computacional">
+  </section>
 
-      <article>
-        <h3>Fibonacci</h3>
-        <pre><code>
-function fibonacci(n) {
-  if (n <= 1) return n;
-  return fibonacci(n - 1) + fibonacci(n - 2);
-}
-        </code></pre>
-        <p>Ejemplo: fibonacci(6) = 8</p>
-      </article>
+  <section id="ejemplos">
+    <h2>Ejemplos de Algoritmos Recursivos</h2>
 
-      <article>
-        <h3>Torres de Hanói</h3>
-        <pre><code>
-function hanoi(n, origen, destino, auxiliar) {
-  if (n === 1) {
-    console.log(`Mover disco 1 de ${origen} a ${destino}`);
-    return;
-  }
-  hanoi(n - 1, origen, auxiliar, destino);
-  console.log(`Mover disco ${n} de ${origen} a ${destino}`);
-  hanoi(n - 1, auxiliar, destino, origen);
-}
-        </code></pre>
-      </article>
-    </section>
+    <h3>Factorial</h3>
+    <p>
+      El factorial es uno de los ejemplos más simples y didácticos de la recursividad. Se define como n! = n × (n-1)! con la condición base
+      de que 0! = 1. En programación, esta definición se implementa casi de manera literal, lo que demuestra la cercanía entre la matemática
+      y el código. Este ejemplo enseña cómo estructurar una condición base y un paso recursivo correctamente. Además, permite entender cómo
+      cada llamada va generando un contexto nuevo en la pila y cómo, al resolverse, se reconstruye el resultado final. Aunque sencillo, este
+      ejemplo es fundamental para introducir la idea de que un problema grande puede resolverse en pasos más pequeños y repetitivos.
+    </p>
+    <div class="example">
+      int factorial(int n) {<br>
+      &nbsp;&nbsp;if (n == 0) return 1;<br>
+      &nbsp;&nbsp;else return n * factorial(n - 1);<br>
+      }
+    </div>
+    <img src="https://media.geeksforgeeks.org/wp-content/uploads/20230208115008/Factorial.png" alt="Ejemplo factorial">
 
-    <!-- Fractales -->
-    <section id="fractal" class="card">
-      <h2>Fractales y Recursividad</h2>
-      <p>
-        Los fractales como el <b>triángulo de Sierpinski</b> son un ejemplo visual de recursividad, 
-        ya que se generan repitiendo un patrón a menor escala infinitamente [3].
-      </p>
-      <canvas id="fractalCanvas" width="400" height="400"></canvas>
-    </section>
+    <h3>Fibonacci</h3>
+    <p>
+      La sucesión de Fibonacci es otro ejemplo clásico. Se define como F(n) = F(n-1) + F(n-2), con condiciones base F(0) = 0 y F(1) = 1.
+      El algoritmo recursivo básico es muy intuitivo y refleja directamente la definición matemática, pero también es ineficiente porque
+      recalcula muchas veces los mismos valores. Este ejemplo es importante porque muestra cómo la recursividad puede ser clara pero también
+      poco óptima. A partir de aquí se introduce la necesidad de optimizaciones como memoización o programación dinámica, que mejoran la
+      eficiencia de manera considerable.
+    </p>
+    <div class="example">
+      int fibonacci(int n) {<br>
+      &nbsp;&nbsp;if (n <= 1) return n;<br>
+      &nbsp;&nbsp;return fibonacci(n - 1) + fibonacci(n - 2);<br>
+      }
+    </div>
+    <img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*oLkZ1UlCT3VkOITkkpFmNQ.png" alt="Ejemplo Fibonacci">
 
-    <!-- Conclusión -->
-    <section id="conclusion" class="card">
-      <h2>Conclusión</h2>
-      <p>
-        La recursividad es una técnica poderosa en ciencias de la computación, que permite soluciones 
-        elegantes y eficientes a problemas complejos. Sin embargo, debe usarse con cuidado para evitar 
-        problemas de rendimiento y desbordamiento de pila [6].
-      </p>
-    </section>
+    <h3>Torres de Hanói</h3>
+    <p>
+      El problema de las Torres de Hanói es un ejemplo muy conocido que demuestra el poder de la recursividad. Consiste en mover una pila
+      de discos de una torre a otra, utilizando una torre auxiliar, siguiendo reglas que impiden colocar un disco más grande sobre uno más
+      pequeño. La solución recursiva es elegante: para mover n discos, primero se mueven n-1 discos a la torre auxiliar, luego se mueve el
+      disco mayor a la torre destino y, finalmente, se mueven los n-1 discos desde la torre auxiliar a la torre destino. Este problema es un
+      clásico en la enseñanza de algoritmos porque muestra cómo dividir un problema complejo en subproblemas más pequeños de la misma
+      naturaleza. Además, es una oportunidad para analizar la complejidad del algoritmo, que resulta ser O(2^n), mostrando los límites
+      prácticos de la recursividad.
+    </p>
+    <div class="example">
+      void hanoi(int n, char origen, char destino, char auxiliar) {<br>
+      &nbsp;&nbsp;if (n == 1) {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;print("Mover disco de " + origen + " a " + destino);<br>
+      &nbsp;&nbsp;} else {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;hanoi(n - 1, origen, auxiliar, destino);<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;hanoi(1, origen, destino, auxiliar);<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;hanoi(n - 1, auxiliar, destino, origen);<br>
+      &nbsp;&nbsp;}<br>
+      }
+    </div>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/07/Tower_of_Hanoi.jpeg" alt="Torres de Hanói">
 
-    <!-- Referencias -->
-    <section id="referencias" class="card">
-      <h2>Referencias</h2>
-      <ol>
-        <li>[1] AcademiaLab, “Recursividad (computación)”, Academia-Lab, 2025. [En línea]. Disponible en: 
-          <a href="https://academia-lab.com/enciclopedia/recursividad-computacion/" target="_blank">academia-lab.com</a></li>
-        <li>[2] Conceptos.es, “Recursividad”, 2025. [En línea]. Disponible en: 
-          <a href="https://conceptos.es/recursividad" target="_blank">conceptos.es</a></li>
-        <li>[3] AlgorEducation, “Recursividad en programación”, 2025. [En línea]. Disponible en: 
-          <a href="https://cards.algoreducation.com/es/content/qiWpUzM1/recursividad-programacion" target="_blank">algoreducation.com</a></li>
-        <li>[4] Codigonautas, “Recursión en programación”, 2025. [En línea]. Disponible en: 
-          <a href="https://codigonautas.com/recursion-recursividad-programacion/" target="_blank">codigonautas.com</a></li>
-        <li>[5] SignificadosWeb, “Recursividad: qué es y ejemplos”, 2025. [En línea]. Disponible en: 
-          <a href="https://significadosweb.com/concepto-de-recursividad-que-es-definicion-significado-y-ejemplos/" target="_blank">significadosweb.com</a></li>
-        <li>[6] EcuRed, “Recursividad”, 2025. [En línea]. Disponible en: 
-          <a href="https://www.ecured.cu/Recursividad" target="_blank">ecured.cu</a></li>
-      </ol>
-    </section>
-  </main>
+    <h3>Fractales</h3>
+    <p>
+      Los fractales son estructuras geométricas autosimilares que se construyen mediante definiciones recursivas. Un ejemplo clásico es el
+      triángulo de Sierpinski, que se forma al subdividir un triángulo en tres más pequeños y repetir el proceso en cada uno de ellos. La
+      recursividad permite expresar este proceso de manera simple, ya que cada paso no es más que repetir el mismo patrón en menor escala.
+      Los fractales no solo son atractivos desde el punto de vista matemático, sino que también tienen aplicaciones prácticas en gráficos
+      por computadora, simulación de fenómenos naturales y generación de paisajes digitales. Este ejemplo muestra cómo la recursividad
+      puede trascender lo numérico y convertirse en una herramienta visual y artística.
+    </p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Sierpinski_triangle_(black).svg" alt="Fractal recursivo">
+  </section>
 
-  <!-- Footer -->
+  <section id="conclusion">
+    <h2>Conclusión</h2>
+    <p>
+      La recursividad constituye un recurso esencial en las ciencias computacionales. Aunque no siempre es el método más eficiente,
+      resulta fundamental en la enseñanza y en la práctica de la programación, ya que ayuda a desarrollar la capacidad de abstracción y
+      a comprender la naturaleza de muchos problemas. Como se ha visto en esta investigación, la recursividad está presente en
+      problemas sencillos como el cálculo del factorial, en secuencias matemáticas como Fibonacci, en desafíos clásicos como las Torres
+      de Hanói y en patrones visuales como los fractales. Cada uno de estos ejemplos demuestra que la recursividad no es solo una técnica,
+      sino una forma de pensar que permite abordar problemas desde un enfoque estructurado y elegante. Aun con sus limitaciones en términos
+      de complejidad y consumo de memoria, la recursividad sigue siendo un tema indispensable en la formación de programadores y
+      matemáticos, consolidándose como un puente entre la teoría y la práctica. 
+    </p>
+  </section>
+
+  <section id="referencias">
+    <h2>Referencias</h2>
+    <p>[1] AcademiaLab, “Recursividad (computación)”, Academia-Lab, 2025. [En línea]. Disponible en: <a href="https://academia-lab.com/enciclopedia/recursividad-computacion/">https://academia-lab.com/enciclopedia/recursividad-computacion/</a></p>
+    <p>[2] Conceptos.es, “Recursividad: Definición y explicación”, 2025. [En línea]. Disponible en: <a href="https://conceptos.es/recursividad">https://conceptos.es/recursividad</a></p>
+        <p>[3] Codigonautas, “Recursión y recursividad en programación”, 2025. [En línea]. Disponible en: 
+      <a href="https://codigonautas.com/recursion-recursividad-programacion/">
+      https://codigonautas.com/recursion-recursividad-programacion/</a></p>
+
+    <p>[4] AlgorEducation Cards, “Recursividad en programación”, 2025. [En línea]. Disponible en: 
+      <a href="https://cards.algoreducation.com/es/content/qiWpUzM1/recursividad-programacion">
+      https://cards.algoreducation.com/es/content/qiWpUzM1/recursividad-programacion</a></p>
+
+    <p>[5] SignificadosWeb, “Recursividad: concepto, definición y ejemplos”, 2025. [En línea]. Disponible en: 
+      <a href="https://significadosweb.com/concepto-de-recursividad-que-es-definicion-significado-y-ejemplos/">
+      https://significadosweb.com/concepto-de-recursividad-que-es-definicion-significado-y-ejemplos/</a></p>
+
+    <p>[6] EcuRed, “Recursividad”, 2025. [En línea]. Disponible en: 
+      <a href="https://www.ecured.cu/Recursividad">
+      https://www.ecured.cu/Recursividad</a></p>
+  </section>
+
   <footer>
-    <p>© 2025 Proyecto académico - GitHub Pages</p>
+    <p>&copy; 2025 Proyecto académico sobre Recursividad en Programación - Todos los derechos reservados</p>
   </footer>
 
-  <!-- Script fractal -->
-  <script>
-    const canvas = document.getElementById("fractalCanvas");
-    if (canvas) {
-      const ctx = canvas.getContext("2d");
-      function drawTriangle(x, y, size) {
-        ctx.moveTo(x, y);
-        ctx.lineTo(x + size / 2, y - size);
-        ctx.lineTo(x + size, y);
-        ctx.closePath();
-        ctx.stroke();
-      }
-      function sierpinski(x, y, size, depth) {
-        if (depth === 0) {
-          drawTriangle(x, y, size);
-        } else {
-          let newSize = size / 2;
-          sierpinski(x, y, newSize, depth - 1);
-          sierpinski(x + newSize / 2, y - newSize, newSize, depth - 1);
-          sierpinski(x + newSize, y, newSize, depth - 1);
-        }
-      }
-      ctx.strokeStyle = "#004aad";
-      ctx.beginPath();
-      sierpinski(50, 350, 300, 5);
-      ctx.stroke();
-    }
-  </script>
 </body>
 </html>
