@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursividad en Algoritmos</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Recursividad en Algoritmos</h1>
+        <p>Ejemplos prácticos y fundamentos teóricos</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#definicion">Definición</a></li>
+            <li><a href="#procedimientos">Procedimientos</a></li>
+            <li><a href="#caracteristicas">Características</a></li>
+            <li><a href="#complejidad">Complejidad</a></li>
+            <li><a href="#ejemplos">Ejemplos</a></li>
+            <li><a href="#conclusion">Conclusión</a></li>
+            <li><a href="#referencias">Referencias</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Sección Definición -->
+        <section id="definicion">
+            <h2>Definición de Recursividad</h2>
+            <p>
+                La recursividad es una técnica de programación en la cual una función se llama a sí misma 
+                para resolver un problema dividiéndolo en subproblemas más simples.
+            </p>
+        </section>
+
+        <!-- Sección Procedimientos -->
+        <section id="procedimientos">
+            <h2>Procedimientos Recursivos y sus Aplicaciones</h2>
+            <p>
+                Los procedimientos recursivos se aplican en problemas donde la solución se puede descomponer en partes 
+                similares al problema original. Ejemplos: factorial, Fibonacci, Torres de Hanói, algoritmos de ordenamiento 
+                como Quicksort y Mergesort.
+            </p>
+        </section>
+
+        <!-- Sección Características -->
+        <section id="caracteristicas">
+            <h2>Características de la Recursividad</h2>
+            <ul>
+                <li>Divide problemas complejos en subproblemas más simples.</li>
+                <li>Requiere una condición base para evitar bucles infinitos.</li>
+                <li>Permite algoritmos más claros y elegantes.</li>
+                <li>Puede consumir más memoria por la pila de llamadas.</li>
+            </ul>
+        </section>
+
+        <!-- Sección Complejidad -->
+        <section id="complejidad">
+            <h2>Complejidad Computacional</h2>
+            <ul>
+                <li><b>Factorial:</b> O(n)</li>
+                <li><b>Fibonacci recursivo:</b> O(2ⁿ)</li>
+                <li><b>Torres de Hanói:</b> O(2ⁿ - 1)</li>
+                <li><b>MergeSort:</b> O(n log n)</li>
+            </ul>
+        </section>
+
+        <!-- Ejemplos -->
+        <section id="ejemplos">
+            <h2>Ejemplos de Algoritmos Recursivos</h2>
+
+            <article>
+                <h3>Factorial</h3>
+                <pre><code>
+function factorial(n) {
+    if (n === 0) return 1;
+    return n * factorial(n - 1);
+}
+                </code></pre>
+                <p>Ejemplo: factorial(5) = 120</p>
+            </article>
+
+            <article>
+                <h3>Fibonacci</h3>
+                <pre><code>
+function fibonacci(n) {
+    if (n <= 1) return n;
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+                </code></pre>
+                <p>Ejemplo: fibonacci(6) = 8</p>
+            </article>
+
+            <article>
+                <h3>Torres de Hanói</h3>
+                <pre><code>
+function hanoi(n, origen, destino, auxiliar) {
+    if (n === 1) {
+        console.log(`Mover disco 1 de ${origen} a ${destino}`);
+        return;
+    }
+    hanoi(n - 1, origen, auxiliar, destino);
+    console.log(`Mover disco ${n} de ${origen} a ${destino}`);
+    hanoi(n - 1, auxiliar, destino, origen);
+}
+                </code></pre>
+                <p>Ejemplo: hanoi(3, 'A', 'C', 'B')</p>
+            </article>
+
+            <article>
+                <h3>Fractales (Triángulo de Sierpinski)</h3>
+                <canvas id="fractalCanvas" width="300" height="300"></canvas>
+            </article>
+        </section>
+
+        <!-- Conclusión -->
+        <section id="conclusion">
+            <h2>Conclusión</h2>
+            <p>
+                La recursividad es fundamental en ciencias computacionales porque permite resolver problemas complejos 
+                de manera estructurada. Aunque puede implicar un costo computacional mayor en algunos casos, 
+                su uso es esencial en algoritmos de búsqueda, ordenamiento y estructuras de datos.
+            </p>
+        </section>
+
+        <!-- Referencias -->
+        <section id="referencias">
+            <h2>Referencias</h2>
+            <ol>
+                <li>[1] T. H. Cormen et al., <i>Introduction to Algorithms</i>, 3rd ed., MIT Press, 2009.</li>
+                <li>[2] S. Dasgupta et al., <i>Algorithms</i>, McGraw-Hill, 2008.</li>
+                <li>[3] E. Horowitz et al., <i>Computer Algorithms</i>, Silicon Press, 1998.</li>
+                <li>[4] D. Knuth, <i>The Art of Computer Programming</i>, Addison-Wesley, 1997.</li>
+                <li>[5] R. Sedgewick and K. Wayne, <i>Algorithms</i>, Addison-Wesley, 2011.</li>
+                <li>[6] M. Goodrich and M. Goldwasser, <i>Data Structures and Algorithms in Java</i>, Wiley, 2014.</li>
+            </ol>
+        </section>
+    </main>
+
+    <footer>
+        <p>Proyecto académico - GitHub Pages</p>
+    </footer>
+</body>
+</html>
